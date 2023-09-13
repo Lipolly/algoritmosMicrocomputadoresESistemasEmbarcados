@@ -1,9 +1,9 @@
-void apaga(){
+void apaga(){           //apaga o led
      portd = 0;
      delay_ms(300);
 }
 
-void ponto(int apaga){
+void ponto(int apaga){ //ponto
      portd = 255;
      delay_ms(200);
      if(apaga){
@@ -11,7 +11,7 @@ void ponto(int apaga){
      }
 }
 
-void traco(int apaga){
+void traco(int apaga){ //traço
      portd = 255;
      delay_ms(600);
      if(apaga){
@@ -19,12 +19,12 @@ void traco(int apaga){
      }
 }
 
-void espaco(){
+void espaco(){         //espaço entre linhas
      portd = 0;
      delay_ms(900);
 }
 
-void main() {
+void main() {          //main
      trisb = 1;
      trisd = 0;
 
@@ -70,7 +70,7 @@ void main() {
                     traco(1);
                     traco(1);
                     traco(1);
-                    traco(1);
+                    traco(0);
                     
                     ponto(1);  //2
                     ponto(1);
@@ -100,7 +100,7 @@ void main() {
                     ponto(1);
                     ponto(1);
                     ponto(1);
-                    ponto(1);
+                    ponto(0);
                     
                     traco(1);  //0
                     traco(1);
@@ -112,7 +112,7 @@ void main() {
                     ponto(1);
                     ponto(1);
                     ponto(1);
-                    ponto(1);
+                    ponto(0);
               }
      }
 }
