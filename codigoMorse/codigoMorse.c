@@ -76,7 +76,7 @@ void main() {                                                  //main
                     caractere(1, 600, 4);                      //0
                     caractere(0, 600, 1);
                    
-                    caractere(1, 200, 4);  //5
+                    caractere(1, 200, 4);                      //5
                     caractere(0, 200, 1);
               }
      }
