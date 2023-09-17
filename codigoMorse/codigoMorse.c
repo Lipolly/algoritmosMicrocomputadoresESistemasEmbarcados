@@ -1,118 +1,83 @@
-void apaga(){           //apaga o led
+//Ricardo Piero Lippoli Batista || GAT135
+
+void apagaLED(int miliSeg){         //apaga o led durante 0,3 segundos para espaço entre letras/numeros ou 0,9 segundos para espaço entre palavras
      portd = 0;
-     delay_ms(300);
+     delay_ms(miliSeg);
 }
 
-void ponto(int apaga){ //ponto
-     portd = 255;
-     delay_ms(200);
-     if(apaga){
-          apaga();
+void pausa(int palavraContinua){
+     if(palavraContinua){
+          apagaLED(300);
+     }
+     else{
+          apagaLED(900);
      }
 }
 
-void traco(int apaga){ //tra�o
-     portd = 255;
-     delay_ms(600);
-     if(apaga){
-          apaga();
+void caractere(int palavraContinua, int tipoCarac, int vezes){ //acende o led por 0,6 segundos e depois apaga, fazendo um traço
+     while(int i; i < vezes; i++){
+          portd = 255;
+          delay_ms(tipoCarac); //se tipoCarac = 200 é um ponto se = 600 é um traço
+          pausa(palavraContinua);
      }
-}
-
-void espaco(){         //espa�o entre linhas
-     portd = 0;
-     delay_ms(900);
 }
 
 void main() {          //main
      trisb = 1;
      trisd = 0;
-
+     apagaLED(100);       //inicia o led pagado
+     
      while(1){
-              while(portb.rb0 == 0){
-                    apaga();          //inicia apagado
-
-                    ponto(1);  //R
-                    traco(1);
-                    ponto(0);
+              while(portb.rb0 == 0){  //Se rb0 for precionado
+                    caractere(1, 200, 1);  //R
+                    caractere(1, 600, 1);
+                    caractere(0, 200, 1);
                     
-                    espaco();
+                    caractere(1, 200, 1);  //P
+                    caractere(1, 600, 2);
+                    caractere(0, 200, 1);
                     
-                    ponto(1);  //P
-                    traco(1);
-                    traco(1);
-                    ponto(0);
+                    caractere(1, 200, 1);  //L
+                    caractere(1, 600, 1);
+                    caractere(1, 200, 1);
+                    caractere(0, 200, 1);
                     
-                    espaco();
-                    
-                    ponto(1);  //L
-                    traco(1);
-                    ponto(1);
-                    ponto(0);
-                    
-                    espaco();
-                    
-                    traco(1);  // B
-                    ponto(1);
-                    ponto(1);
-                    ponto(0);
+                    caractere(1, 600, 1);  // B
+                    caractere(1, 200, 2);
+                    caractere(0, 200, 1);
                     
               }
               
-              while(portb.rb1 == 0){
-                    ponto(1);  //2
-                    ponto(1);
-                    traco(1);
-                    traco(1);
-                    traco(0);
+              while(portb.rb1 == 0){  //Se rb1 for precionado 
+                    caractere(1, 200, 2);  //2
+                    caractere(1, 600, 2);
+                    caractere(0, 600, 1);
+                   
+                    caractere(1, 600, 4);  //0
+                    caractere(0, 200, 1);
+                   
+                    caractere(1, 200, 2);  //2
+                    caractere(1, 600, 2);
+                    caractere(0, 600, 1);
                     
-                    traco(1);  //0
-                    traco(1);
-                    traco(1);
-                    traco(1);
-                    traco(0);
-                    
-                    ponto(1);  //2
-                    ponto(1);
-                    traco(1);
-                    traco(1);
-                    traco(0);
-                    
-                    traco(1);  //0
-                    traco(1);
-                    traco(1);
-                    traco(1);
-                    traco(0);
-                    
-                    ponto(1);  //1
-                    traco(1);
-                    traco(1);
-                    traco(1);
-                    traco(0);
-                    
-                    traco(1);  //0
-                    traco(1);
-                    traco(1);
-                    traco(1);
-                    traco(0);
-                    
-                    ponto(1);  //5
-                    ponto(1);
-                    ponto(1);
-                    ponto(1);
-                    ponto(0);
-                    
-                    traco(1);  //0
-                    traco(1);
-                    traco(1);
-                    traco(1);
-                    traco(0);
-
-                    ponto(1);  //5
-                    ponto(1);
-                    ponto(1);
-                    ponto(1);
-                    ponto(0);
+                    caractere(1, 600, 4);  //0
+                    caractere(0, 600, 1);
+                   
+                    caractere(1, 200, 1);  //1
+                    caractere(1, 600, 3);
+                    caractere(0, 600, 1);
+                   
+                    caractere(1, 600, 4);  //0
+                    caractere(0, 600, 1);
+                   
+                    caractere(1, 200, 4);  //5
+                    caractere(0, 200, 1);
+                   
+                    caractere(1, 600, 4);  //0
+                    caractere(0, 600, 1);
+                   
+                    caractere(1, 200, 4);  //5
+                    caractere(0, 200, 1);
               }
      }
 }
