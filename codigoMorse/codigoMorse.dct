@@ -251,7 +251,6 @@ an6
 an6_bit
 an7
 an7_bit
-apaga
 asin
 asoneblock
 asoneblock
@@ -330,6 +329,7 @@ canspisetfilter
 canspisetmask
 canspisetoperationmode
 canspiwrite
+caractere
 ccp1
 ccp1_bit
 ccp1con
@@ -541,7 +541,6 @@ eepgd_bit
 eeprom_read
 eeprom_write
 equals_double
-espaco
 exp
 expander_init
 expander_init_advanced
@@ -997,6 +996,7 @@ ow_reset
 ow_write
 p
 p_bit
+pausa
 pbcurrenthuffsymboltable
 pbcurrenthuffsymboltable
 pbcurrenthuffsymlentable
@@ -1044,7 +1044,6 @@ pir2
 plusw0
 plusw1
 plusw2
-ponto
 por
 por_bit
 porta
@@ -2027,7 +2026,6 @@ tp_tft_rotate_180
 tp_tft_set_adc_threshold
 tp_tft_set_calibration_consts
 tp_tft_set_default_mode
-traco
 trisa
 trisa0
 trisa0_bit

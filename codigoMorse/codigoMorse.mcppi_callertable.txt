@@ -1,7 +1,3 @@
 main
-	apaga
-	ponto
-		apaga
-	traco
-		apaga
-	espaco
+	caractere
+		pausa

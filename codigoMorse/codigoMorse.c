@@ -1,74 +1,77 @@
 //Ricardo Piero Lippoli Batista || GAT135
-void apagaLED(int miliSeg){                                    //fun√ß√£o que apaga os leds
-     portd = 0;                                                //valor apagado
-     delay_ms(miliSeg);                                        //tempo fica apagado
-}
-void pausa(int palavraContinua){                               //faz o controle de pausas entre palavras ou letras
+void pausa(int palavraContinua){
+     portd = 0;                                                //faz o controle de pausas entre palavras ou letras
      if(palavraContinua){
-          apagaLED(300);                                       //apaga o led durante 0,3 segundos para espa√ßo entre letras/numeros
+          delay_ms(300);                                       //apaga o led durante 0,3 segundos para espaÁo entre letras/numeros
      }
      else{
-          apagaLED(900);                                       //apaga o led durante 0,9 segundos para espa√ßo entre palavras
+          delay_ms(900);                                       //apaga o led durante 0,9 segundos para espaÁo entre palavras
      }
 }
-void caractere(int palavraContinua, int tipoCarac, int vezes){ //pisca o led de acordo com as variaveis recebidos fazendo um ponto ou tra√ßo
-     while(int i = 0; i < vezes; i++){                         //repete o trecho com o numero de vezes que o mesmo caracter aparece
-          portd = 255;                                         //valor acesso
-          delay_ms(tipoCarac);                                 //tempo que fica acesso || se tipoCarac = 200 √© um ponto se = 600 √© um tra√ßo
+void caractere(int palavraContinua, int tipoCarac, int vezes){ //pisca o led de acordo com as variaveis recebidos fazendo um ponto ou traÁo
+     int i = 0;
+     portd = 255;
+     while(i < vezes){                                         //repete o trecho com o numero de vezes que o mesmo caracter aparece
+          if(tipoCarac == 200){                                //tempo que fica acesso || se tipoCarac = 200 È um ponto se = 600 È um traÁo
+               delay_ms(200);
+          }
+          else{
+               delay_ms(600);
+          };
           pausa(palavraContinua);                              //pausa entre caracteres
+          i = i+1;
      }
 }
 void main() {                                                  //main
      trisb = 1;
      trisd = 0;
-     apagaLED(100);                                            //inicia o led pagado
      while(1){
               while(portb.rb0 == 0){                           //Se rb0 for precionado
                     caractere(1, 200, 1);                      //R
                     caractere(1, 600, 1);
                     caractere(0, 200, 1);
-                    
+
                     caractere(1, 200, 1);                      //P
                     caractere(1, 600, 2);
                     caractere(0, 200, 1);
-                    
+
                     caractere(1, 200, 1);                      //L
                     caractere(1, 600, 1);
                     caractere(1, 200, 1);
                     caractere(0, 200, 1);
-                    
+
                     caractere(1, 600, 1);                      // B
                     caractere(1, 200, 2);
                     caractere(0, 200, 1);
               }
-              while(portb.rb1 == 0){                           //Se rb1 for precionado 
+              while(portb.rb1 == 0){                           //Se rb1 for precionado
                     caractere(1, 200, 2);                      //2
                     caractere(1, 600, 2);
                     caractere(0, 600, 1);
-                   
+
                     caractere(1, 600, 4);                      //0
                     caractere(0, 200, 1);
-                   
+
                     caractere(1, 200, 2);                      //2
                     caractere(1, 600, 2);
                     caractere(0, 600, 1);
-                    
+
                     caractere(1, 600, 4);                      //0
                     caractere(0, 600, 1);
-                   
+
                     caractere(1, 200, 1);                      //1
                     caractere(1, 600, 3);
                     caractere(0, 600, 1);
-                   
+
                     caractere(1, 600, 4);                      //0
                     caractere(0, 600, 1);
-                   
+
                     caractere(1, 200, 4);                      //5
                     caractere(0, 200, 1);
-                   
+
                     caractere(1, 600, 4);                      //0
                     caractere(0, 600, 1);
-                   
+
                     caractere(1, 200, 4);                      //5
                     caractere(0, 200, 1);
               }
