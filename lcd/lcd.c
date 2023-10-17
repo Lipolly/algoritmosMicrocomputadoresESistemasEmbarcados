@@ -1,16 +1,3 @@
-/****************************************************************
-**                          Exemplo 03                          *
-**                                                              *
-**      Exemplo para utilizacao do LCD presente no kit PIC      *
-**           18F452. O programa inicializa o display e em seguida   *
-**           escreve a frase "Hello World".                                    *
-**                                                              *
-** Arquivo: lcd.c 
-** Compilador: Mikro C PRO PIC v.6.4.0                          *
-**                                                              *
-** UFLA - Lavras/MG - 07/06/2017                                *
-*****************************************************************/
-
 // Conexoes LCD do kit PICGenios com 18F
 sbit LCD_RS at RE2_bit;
 sbit LCD_EN at RE1_bit;
@@ -38,7 +25,6 @@ char hora_string [8];
 
 
 // Fim das conexoes
-
 void main()
 {
            ADCON0  = 0x00;        // Configura todos pinos das portas para digital e
