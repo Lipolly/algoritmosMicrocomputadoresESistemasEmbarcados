@@ -1,0 +1,9 @@
+Exercício prático #05
+
+Desenvolver um programa em C para o kit PICGenios que utilize o display LCD e o sensor infravermelho para indicar a quantidade de voltas realizadas pela ventoinha.
+
+Obs.:
+
+- Exercício individual, mas pode ser feito em grupo. Cada aluno posta o seu exercício.
+
+- Postar um arquivo pdf com o programa fonte em linguagem C contendo os devidos comentários na sala virtual da disciplina, até a data combinada. Não compactar o arquivo postado.
